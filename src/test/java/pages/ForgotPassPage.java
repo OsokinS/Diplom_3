@@ -9,8 +9,7 @@ import org.openqa.selenium.support.How;
 public class ForgotPassPage {
 
     @FindBy(how = How.XPATH,using = "//*[contains(@class, 'Auth_link')][contains(text(), 'Войти')]")
-    public SelenideElement inForgotPassButton;
-
+    private SelenideElement inForgotPassButton;
     @Step
     public void clickInButton() {
         inForgotPassButton.shouldBe(Condition.exist).click();

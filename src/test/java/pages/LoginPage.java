@@ -61,7 +61,7 @@ public class LoginPage {
     }
 
     @Step
-    public void login(String customerMail, String customerPass){
+    public void checkLogin(String customerMail, String customerPass){
         emailInput.shouldBe(Condition.exist).click();
         emailActField.click();
         emailActField.setValue(customerMail);

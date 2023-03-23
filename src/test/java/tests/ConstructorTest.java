@@ -30,7 +30,7 @@ public class ConstructorTest {
         String loginUrl = "https://stellarburgers.nomoreparties.site/login";
         LoginPage loginPage = open(loginUrl, LoginPage.class);
         Configuration.browserSize = "1920x1080";
-        loginPage.login(responseData.get("email"),responseData.get("password"));
+        loginPage.checkLogin(responseData.get("email"),responseData.get("password"));
     }
 
     @After
@@ -40,7 +40,7 @@ public class ConstructorTest {
 
     @DisplayName("При попадании на главную страницу по дефолту открыта вкладка Булки")
     @Test
-    public  void  BunsTabTest(){
+    public  void bunsTabTest(){
         MainPageBurger mainPage = page(MainPageBurger.class);
         boolean isBun = mainPage.checkTopBun();
         assertTrue("Булки нет!", isBun);
@@ -55,7 +55,10 @@ public class ConstructorTest {
         boolean isSauce = mainPage.checkTopSauce();
         assertTrue("Соусов нет!", isSauce);
 
+
+
     }
+
 
     @DisplayName("Успешный переход на вкладку начинки")
     @Test

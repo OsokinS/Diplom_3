@@ -2,6 +2,7 @@ package com;
 
 import com.model.Tokens;
 import com.model.UserRegisterResponse;
+import com.model.UserRequest;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.HashMap;
@@ -11,7 +12,10 @@ import static io.restassured.RestAssured.given;
 
 public class UserOperations {
 
-    public static final String EMAIL_POSTFIX = "@yandex.ru";
+    private static final String EMAIL_POSTFIX = "@yandex.ru";
+    private static final String PATH_USER = "auth/user";
+    private static final String PATH_REGISTR = "auth/register";
+    private static final String PATH_LOGIN = "auth/login";
 
     /*
      метод регистрации нового пользователя
@@ -40,7 +44,7 @@ public class UserOperations {
                 .and()
                 .body(inputDataMap)
                 .when()
-                .post("auth/register")
+                .post(PATH_REGISTR)
                 .body()
                 .as(UserRegisterResponse.class);
 
@@ -72,9 +76,20 @@ public class UserOperations {
                 .spec(Base.getBaseSpec())
                 .auth().oauth2(Tokens.getAccessToken())
                 .when()
-                .delete("auth/user")
+                .delete(PATH_USER)
                 .then()
                 .statusCode(202);
+    }
+
+    public void getToken(UserRequest userRequest) {
+        String token = given()
+                .spec(Base.getBaseSpec())
+                .when()
+                .post(PATH_LOGIN)
+                .then()
+                .extract().response().body().path("accessToken");
+
+        Tokens.setAccessToken(token);
     }
 
 }

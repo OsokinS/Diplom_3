@@ -42,7 +42,7 @@ public class UserLoginTest {
         MainPageBurger mainPage = open(url, MainPageBurger.class);
         mainPage.clickInAcc();//переход к логину через кнопку Войти в аккаунт
         LoginPage loginPage = page(LoginPage.class);
-        loginPage.login(responseData.get("email"),responseData.get("password"));
+        loginPage.checkLogin(responseData.get("email"),responseData.get("password"));
         MainPageBurger main = page(MainPageBurger.class);
         main.checkHasButtonAndText();
 
@@ -54,7 +54,7 @@ public class UserLoginTest {
         MainPageBurger mainPage = open(url, MainPageBurger.class);
         mainPage.clickPersAcc();//переход к логину через кнопку Личный кабинет
         LoginPage loginPage = page(LoginPage.class);
-        loginPage.login(responseData.get("email"),responseData.get("password"));
+        loginPage.checkLogin(responseData.get("email"),responseData.get("password"));
         MainPageBurger main = page(MainPageBurger.class);
         main.checkHasButtonAndText();
 
@@ -69,7 +69,7 @@ public class UserLoginTest {
         MainPageBurger mainPage = open(url, MainPageBurger.class);
         mainPage.clickPersAcc();//переход к логину через кнопку Личный кабинет
         LoginPage loginPage = page(LoginPage.class);
-        loginPage.login(responseData.get("email"),responseData.get("password"));
+        loginPage.checkLogin(responseData.get("email"),responseData.get("password"));
         MainPageBurger main = page(MainPageBurger.class);
         main.checkHasButtonAndText();
 
@@ -82,7 +82,7 @@ public class UserLoginTest {
         ForgotPassPage forgotPage = open(forgotPassUrl, ForgotPassPage.class);
         forgotPage.clickInButton();//переход к логину через кнопку Войти на старнице восстановления пароля
         LoginPage loginPage = page(LoginPage.class);
-        loginPage.login(responseData.get("email"),responseData.get("password"));
+        loginPage.checkLogin(responseData.get("email"),responseData.get("password"));
         MainPageBurger main = page(MainPageBurger.class);
         main.checkHasButtonAndText();
 
