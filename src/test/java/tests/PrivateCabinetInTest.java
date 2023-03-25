@@ -69,8 +69,7 @@ public class PrivateCabinetInTest {
         mainPage.clickPersAcc();
         PrivateOfficePage privateOffice = page(PrivateOfficePage.class);
         privateOffice.goConstr();
-     //   MainPageBurger mainPage2 = page(MainPageBurger.class);
-     //   mainPage2.checkHasButtonAndText();
+        mainPage.checkHasButtonAndText();
 
     }
 
@@ -81,8 +80,7 @@ public class PrivateCabinetInTest {
         mainPage.clickPersAcc();
         PrivateOfficePage privateOffice = page(PrivateOfficePage.class);
         privateOffice.goBurger();
-      //  MainPageBurger mainPage2 = page(MainPageBurger.class);
-      //  mainPage2.checkHasButtonAndText();
+        mainPage.checkHasButtonAndText();
 
     }
 

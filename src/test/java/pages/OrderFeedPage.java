@@ -9,7 +9,8 @@ import org.openqa.selenium.support.How;
 public class OrderFeedPage {
 
     @FindBy(how = How.XPATH,using = "//p[contains(text(),'Личный Кабинет')]")
-    public SelenideElement inOrderFeedButton;
+    private SelenideElement inOrderFeedButton;
+
 
     @Step
     public void clickInButton() {

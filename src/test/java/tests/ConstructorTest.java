@@ -18,10 +18,10 @@ import static org.junit.Assert.assertTrue;
 
 public class ConstructorTest {
 
-    public static final String url = "https://stellarburgers.nomoreparties.site/";
+    private static final String url = "https://stellarburgers.nomoreparties.site/";
 
-    public UserOperations userOperations = new UserOperations();
-    public Map<String, String> responseData = new HashMap<>();
+    private UserOperations userOperations = new UserOperations();
+    private Map<String, String> responseData = new HashMap<>();
 
 
     @Before
@@ -44,35 +44,30 @@ public class ConstructorTest {
         MainPageBurger mainPage = page(MainPageBurger.class);
         boolean isBun = mainPage.checkTopBun();
         assertTrue("Булки нет!", isBun);
-
     }
 
     @DisplayName("Успешный переход на вкладку Соусы")
     @Test
-    public  void  GoSauceTabTest(){
+    public  void goSauceTabTest(){
         MainPageBurger mainPage = page(MainPageBurger.class);
         mainPage.clickSauce();
         boolean isSauce = mainPage.checkTopSauce();
         assertTrue("Соусов нет!", isSauce);
-
-
-
     }
 
 
     @DisplayName("Успешный переход на вкладку начинки")
     @Test
-    public  void  GoToppingTabTest(){
+    public  void goToppingTabTest(){
         MainPageBurger mainPage = page(MainPageBurger.class);
         mainPage.clickToppings();
         boolean isTopping = mainPage.checkTopTopping();
         assertTrue("Начинок нет!", isTopping);
-
     }
 
     @DisplayName("Успешный переход на вкладку Булки из других вкладок")
     @Test
-    public  void  GoBunTabTest(){
+    public  void goBunTabTest(){
         MainPageBurger mainPage = page(MainPageBurger.class);
         mainPage.clickToppings();
         boolean isTopping = mainPage.checkTopTopping();
@@ -80,6 +75,5 @@ public class ConstructorTest {
         mainPage.clickBuns();
         boolean isBun = mainPage.checkTopBun();
         assertTrue("Вкладка булок не активна", isBun);
-
     }
 }

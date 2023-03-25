@@ -19,10 +19,10 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class UserLoginTest {
 
-    public static final String url = "https://stellarburgers.nomoreparties.site/";
+    private static final String url = "https://stellarburgers.nomoreparties.site/";
 
-    public UserOperations userOperations = new UserOperations();
-    public Map<String, String> responseData = new HashMap<>();
+    private UserOperations userOperations = new UserOperations();
+    private Map<String, String> responseData = new HashMap<>();
 
 
     @Before
